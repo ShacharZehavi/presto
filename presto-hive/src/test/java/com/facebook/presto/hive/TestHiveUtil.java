@@ -27,6 +27,8 @@ public class TestHiveUtil
     public void testParseHiveTimestamp()
     {
         DateTime time = new DateTime(2011, 5, 6, 7, 8, 9, 123);
+        DateTime justTheDate = new DateTime(2011, 5, 6, 0, 0, 0, 0);
+        assertEquals(parse(time, "yyyy-MM-dd"), unixTime(justTheDate));
         assertEquals(parse(time, "yyyy-MM-dd HH:mm:ss"), unixTime(time));
         assertEquals(parse(time, "yyyy-MM-dd HH:mm:ss.S"), unixTime(time));
         assertEquals(parse(time, "yyyy-MM-dd HH:mm:ss.SSS"), unixTime(time));

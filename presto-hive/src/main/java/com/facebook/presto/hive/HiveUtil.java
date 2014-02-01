@@ -52,7 +52,8 @@ final class HiveUtil
 {
     // timestamps are stored in local time
     private static final DateTimeFormatter HIVE_TIMESTAMP_PARSER = new DateTimeFormatterBuilder()
-            .append(DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss"))
+            .append(DateTimeFormat.forPattern("yyyy-MM-dd"))
+            .appendOptional(DateTimeFormat.forPattern(" HH:mm:ss").getParser())
             .appendOptional(DateTimeFormat.forPattern(".SSSSSSSSS").getParser())
             .toFormatter();
 
